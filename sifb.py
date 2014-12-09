@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import Image
 import sys
+import urllib
 
 from facepy import GraphAPI
 from facepy.exceptions import OAuthError
@@ -39,7 +40,7 @@ if __name__ == "__main__":
 
 	url = fb_get_profile_pic(token)
 	if url:
-		# download(url, "avatar.png")
+		urllib.urlretrieve(url, "avatar.png")
 		profile = Image.open("avatar.png")
 		sticker = Image.open("sticker.png")
 		profile.paste(sticker, (0, 0), sticker)
